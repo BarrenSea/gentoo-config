@@ -1,0 +1,28 @@
+# editor
+app-editors/emacs libxml2 dynamic-loading json xwidgets
+
+# sys
+sys-libs/glibc hash-sysv-compat
+sys-kernel/installkernel dracut
+sys-devel/gcc jit
+
+
+# game
+app-emulation/wine-proton osmesa v4l
+
+# rust
+dev-lang/rust  clippy doc rust-analyzer rust-src rust-fmt
+dev-lang/rust-bin clippy rust-src rust-analyzer rustfmt
+
+# hardware
+x11-libs/libdrm video_cards_radeon
+
+# media
+meida-video/obs-studio pipewire v4l
+meida-video/obs-studio pipewire v4l
+media-video/pipewire gstreamer
+
+
+# tmp(for fix the circular dependencies)
+sys-libs/ncurses -gpm
+dev-lang/python -bluetooth

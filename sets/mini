@@ -1,0 +1,43 @@
+# editor
+app-editors/emacs
+app-editors/vim
+
+# boot
+sys-boot/grub
+
+# kernel and driver
+sys-kernel/barrensea-kernel::barrensea-overlay
+sys-kernel/linux-firmware
+sys-kernel/linux-headers
+media-libs/mesa
+
+# network
+net-misc/networkmanager
+net-misc/dhcpcd
+
+# git
+dev-vcs/git
+# shell
+app-shells/fish
+
+
+# time
+net-misc/chrony
+
+# gentoo-tools
+app-portage/gentoolkit
+sys-apps/portage
+# sys-tools
+app-admin/sudo
+dev-util/perf
+dev-debug/strace
+dev-debug/gdb
+
+# tools
+app-crypt/gnupg
+app-misc/tmux
+
+# compiler
+llvm-core/llvm
+sys-devel/gcc
+sys-libs/glibc

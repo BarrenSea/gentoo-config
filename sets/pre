@@ -1,0 +1,9 @@
+# shell
+app-shells/fish
+
+# tools
+app-misc/tmux
+dev-vcs/git
+# sys-tools
+app-admin/sudo
+
