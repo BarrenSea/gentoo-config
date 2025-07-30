@@ -32,7 +32,7 @@ app-admin/sudo
 dev-util/perf
 dev-debug/strace
 dev-debug/gdb
-
+sys-process/lsof
 # tools
 app-crypt/gnupg
 app-misc/tmux
