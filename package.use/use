@@ -22,7 +22,18 @@ meida-video/obs-studio pipewire v4l
 meida-video/obs-studio pipewire v4l
 media-video/pipewire gstreamer
 
+# xfce4
+dev-libs/libdbusmenu gtk3
 
+# boot
+sys-boot/grub mount
 # tmp(for fix the circular dependencies)
 sys-libs/ncurses -gpm
 dev-lang/python -bluetooth
+
+# kde
+kde-plasma/kwin lock
+kde-plasma/kwin-x11 lock
+
+# lib
+sys-libs/zlib minizip

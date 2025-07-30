@@ -41,3 +41,5 @@ app-misc/tmux
 llvm-core/llvm
 sys-devel/gcc
 sys-libs/glibc
+# ssh
+#

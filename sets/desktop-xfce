@@ -1,0 +1,31 @@
+# desktop
+#xfce-base/xfce4-meta
+
+# extra与插件
+#x11-themes/xfwm4-themes # 主题
+
+## 电池
+#xfce-extra/xfce4-battery-plugin
+
+## 传感器
+#xfce-extra/xfce4-sensors-plugin
+
+## 嵌入面包的方便终端
+#xfce-extra/xfce4-verve-plugin
+
+## 音量
+#xfce-extra/xfce4-alsa-plugin # alsa音量
+
+## 计算器
+#xfce-extra/xfce4-calculator-plugin
+
+## 剪贴板
+#xfce-extra/xfce4-clipman-plugin
+
+## 休息时间
+#xfce-extra/xfce4-time-out-plugin
+## thunar插件
+
+#xfce-extra/thunar-media-tags-plugin # 媒体文件插件
+#xfce-extra/thunar-vcs-plugin # vcs,git
+
