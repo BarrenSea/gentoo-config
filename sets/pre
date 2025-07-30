@@ -7,3 +7,5 @@ dev-vcs/git
 # sys-tools
 app-admin/sudo
 
+# network
+net-misc/proxychains

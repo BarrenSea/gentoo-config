@@ -14,7 +14,7 @@ media-libs/mesa
 # network
 net-misc/networkmanager
 net-misc/dhcpcd
-
+net-misc/proxychains
 # git
 dev-vcs/git
 # shell
