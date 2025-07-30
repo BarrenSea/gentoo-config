@@ -1,11 +1,37 @@
 * Gentoo
-这是我的Gentoo配置 为了方便gentoo的包管理 将不同的包分组到了sets中
+这是我的Gentoo配置 为了方便gentoo的包管理 将不同的包分组到了sets中 并提供脚本
+
+以供轻量化安装gentoo所需要的操作 目前使用的是systemd
 
 ** sets
-| pre          | 最先安装的sets,包含了基础的fish,sudo,git和tmux           |
-| mini         | 其中是必要的系统组件和工具grub,kernel,firmware,dhcpcd... |
-| desktop-xfce | xfce桌面                                                   |
+软件集合
+| pre             | 最先安装的sets,包含了基础的fish,sudo,git和tmux          |
+| mini            | 其中是必要的系统组件和工具grub,kernel,firmware,dhcpcd... |
+| desktop-xfce    | xfce桌面                                             |
+| desktop-kde     | kde桌面                                              |
+| desktop-general | 桌面需要安装的: 声音 qq 微信 proxy                      |
+| boot            | os-prober                                            |
+| fs              | 文件系统及其工具                                       |
+| i18n            | 输入法与rime                                          |
+| java            | java开发工具                                          |
+| game            | 游戏用工具                                            |
+| compress        | 压缩工具                                                 |
+** scripts
+脚本
+| grub.sh                  | [需要更改EFI分区挂载点]安装grub与grub配置 应先安装@mini与@boot |
+| locale.sh                | lcoale生成                                                |
+| mount.sh                 | 最先做,挂载文件系统proc sys dev run                         |
+| power.sh                 | 电源相关 开启power-profile tlp等                            |
+| proxychains.sh           | [需要更改地址端口]更改proxychains.conf 默认为127.0.0.112334   |
+| remove_some_world_set.sh | 删除不需要的包                                              |
+| sound.sh                 | [需要更改用户名]加入audio pipewire用户组 并开启服务            |
+| systemd_service.sh       | enable服务                                                |
+| timezone.sh              | 时区                                                        |
+** 安装顺序
+sudo mount.sh -> sudo timezone.sh  -> @pre -> @boot -> @mini -> @fs -> sudo grub.sh 并修改fstab -> sudo proxychains.sh 5. compress
 
+-> [若桌面 desktop-general -> i18n -> desktop-kde/xfce ] -> 创建用户/修改密码 -> sudo systemd_service.sh -> [nosudo] sound.sh -> sudo power.sh
+-> game 
 ** 使用
 首先由于make.profile的符号链接是相对路径 所以clone后要进行生成profile
 #+begin_src shell
@@ -30,12 +56,5 @@
 #+end_src
 即可移出
 
-** scripts
-这里面是一些脚本 用于方便的安装gentoo
-| locale.sh                | 将en_US和zh_CN写入locale.gen 并生成 |
-| mount.sh                 | 挂载chroot所需的dev,run,sys等       |
-| remove_some_world_set.sh | 从world移除不需要的包如nano编辑器   |
-| timezone.sh              | 更改timezone                        |
-| proxychains.sh           | 修改proxychains的配置               |
 
 

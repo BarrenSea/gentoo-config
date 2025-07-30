@@ -1,0 +1,16 @@
+# web browser
+www-client/google-chrome
+
+# sound
+media-libs/alsa-lib
+media-sound/pulseaudio
+media-sound/alsa-utils
+media-video/pipewire
+media-video/wireplumber
+
+# im
+net-im/linuxqq::barrensea-overlay
+net-im/linuxwechat::barrensea-overlay
+
+# proxy
+net-vpn/hiddify-bin::barrensea-overlay

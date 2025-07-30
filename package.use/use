@@ -20,7 +20,7 @@ x11-libs/libdrm video_cards_radeon
 # media
 meida-video/obs-studio pipewire v4l
 meida-video/obs-studio pipewire v4l
-media-video/pipewire gstreamer
+media-video/pipewire gstreamer pipewire-alsa sound-server
 
 # xfce4
 dev-libs/libdbusmenu gtk3

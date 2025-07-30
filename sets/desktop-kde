@@ -1,1 +1,7 @@
+# meta
 kde-plasma/plasma-meta
+
+# tty
+kde-apps/konsole
+kde-apps/dolphin
+kde-apps/ark
