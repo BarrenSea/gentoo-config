@@ -2,8 +2,9 @@
 这是我的Gentoo配置 为了方便gentoo的包管理 将不同的包分组到了sets中
 
 ** sets
-| pre  | 最先安装的sets,包含了基础的fish,sudo,git和tmux           |
-| mini | 其中是必要的系统组件和工具grub,kernel,firmware,dhcpcd... |
+| pre          | 最先安装的sets,包含了基础的fish,sudo,git和tmux           |
+| mini         | 其中是必要的系统组件和工具grub,kernel,firmware,dhcpcd... |
+| desktop-xfce | xfce桌面                                                   |
 
 ** 使用
 首先由于make.profile的符号链接是相对路径 所以clone后要进行生成profile
@@ -20,7 +21,7 @@
 
 对于每次更新或安装某个set使用 使用-1是为了不加入@world 方便管理
 #+begin_src shell
-  emerge -v1 --update @set
+  emerge -v1n --update @set
 #+end_src
 
 若不小心将某set加入到了@world
@@ -34,5 +35,7 @@
 | locale.sh                | 将en_US和zh_CN写入locale.gen 并生成 |
 | mount.sh                 | 挂载chroot所需的dev,run,sys等       |
 | remove_some_world_set.sh | 从world移除不需要的包如nano编辑器   |
-| timezone.sh              | 更改timezone                          |
+| timezone.sh              | 更改timezone                        |
+| proxychains.sh           | 修改proxychains的配置               |
+
 
