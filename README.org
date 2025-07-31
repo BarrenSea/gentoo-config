@@ -27,6 +27,9 @@
 | sound.sh                 | [需要更改用户名]加入audio pipewire用户组 并开启服务            |
 | systemd_service.sh       | enable服务                                                |
 | timezone.sh              | 时区                                                        |
+** home-config
+用户的dotfiles
+| tmux.sh | .tmux.conf |
 ** 安装顺序
 sudo mount.sh -> sudo timezone.sh  -> @pre -> @boot -> @mini -> @fs -> sudo grub.sh 并修改fstab -> sudo proxychains.sh 5. compress
 
