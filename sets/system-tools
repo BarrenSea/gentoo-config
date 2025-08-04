@@ -1,0 +1,4 @@
+dev-util/perf
+dev-debug/strace
+sys-process/lsof
+sys-fs/inotify-tools

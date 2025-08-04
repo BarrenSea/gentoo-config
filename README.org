@@ -5,7 +5,7 @@
 
 ** sets
 软件集合
-| pre             | 最先安装的sets,包含了基础的fish,sudo,git和tmux          |
+| pre             | 最先安装的sets,包含了基础的fish,sudo,git和tmux           |
 | mini            | 其中是必要的系统组件和工具grub,kernel,firmware,dhcpcd... |
 | desktop-xfce    | xfce桌面                                             |
 | desktop-kde     | kde桌面                                              |
@@ -13,9 +13,16 @@
 | boot            | os-prober                                            |
 | fs              | 文件系统及其工具                                       |
 | i18n            | 输入法与rime                                          |
-| java            | java开发工具                                          |
-| game            | 游戏用工具                                            |
-| compress        | 压缩工具                                                 |
+| java            | java开发工具 jdk                                      |
+| game            | 游戏用工具 wine proton等                               |
+| compress        | 压缩工具 7zip等                                       |
+| bittorrent      | p2p下载器  qbittorrent等                              |
+| container       | 容器 podman等                                         |
+| web-client      | 浏览器 chromium                                       |
+| sec             | 安全工具 clamv等                                      |
+| system-tools    | 系统工具 inotify-tools perf lsof等                    |
+| power           | 电源管理 tlp等                                         |
+| media           | 媒体相关 kdenlive等                                    |
 ** scripts
 脚本
 | grub.sh                  | [需要更改EFI分区挂载点]安装grub与grub配置 应先安装@mini与@boot |
@@ -27,9 +34,48 @@
 | sound.sh                 | [需要更改用户名]加入audio pipewire用户组 并开启服务            |
 | systemd_service.sh       | enable服务                                                |
 | timezone.sh              | 时区                                                        |
+
+*** grub.sh
+修改grub的timeout时间 并增加关机,重启两个menu 启用os-prober
+
+**** 修改变量
+| 变量     | 用处             | 缺省值 |
+| TIME_OUT | grub timeout时间 | 10    |
+
+*** mount.sh
+挂载文件系统以chroot
+
+**** 修改变量
+| 变量 | 用处      | 缺省值 |
+| MNT  | root挂载点 | /mnt  |
+*** proxychains.sh
+修改proxychains代理地址
+**** 修改变量
+| 变量     | 用处 | 缺省值     |
+| PROTOCOL | 协议 | http      |
+| ADDR     | 地址 | 127.0.0.1 |
+| PORT     | 端口 | 12334     |
+*** sound.sh
+将用户加入音频用户组 并启用音频服务
+**** 修改变量
+| 变量 | 用处  | 缺省值   |
+| USER | 用户名 | $UID |
 ** home-config
 用户的dotfiles
-| tmux.sh | .tmux.conf |
+| tmux.sh   | .tmux.conf             |
+| git.sh    | [需要修改个人信息]git配置 |
+| kde.sh    | [需要修改配置] kde配置   |
+| fcitx5.sh | [需要修改配置] fcitx配置 |
+*** kde.sh
+修改kde的配置
+**** 修改变量
+| 变量  | 用处       | 缺省值 |
+| SCALE | kde缩放比例 |  1.75 |
+*** fcitx5.sh
+修改fcitx的配置
+**** 修改变量
+| 变量             | 用处           | 缺省值             |
+| TRIGGERKEYS_ZERO | 全局输入法切换键 | Control+Alt+space |
 ** 安装顺序
 sudo mount.sh -> sudo timezone.sh  -> @pre -> @boot -> @mini -> @fs -> sudo grub.sh 并修改fstab -> sudo proxychains.sh 5. compress
 

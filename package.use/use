@@ -37,3 +37,11 @@ kde-plasma/kwin-x11 lock
 
 # lib
 sys-libs/zlib minizip
+
+
+# kdenlive
+media-libs/mlt ffmpeg frei0r
+media-libs/opencv contrib features2d contribdnn
+
+# cdda大灾变
+media-libs/freetype harfbuzz
