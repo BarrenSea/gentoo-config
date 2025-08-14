@@ -14,3 +14,6 @@ net-im/linuxwechat::barrensea-overlay
 
 # proxy
 net-vpn/hiddify-bin::barrensea-overlay
+
+# fastfetch
+app-misc/fastfetch

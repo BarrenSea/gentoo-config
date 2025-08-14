@@ -9,4 +9,4 @@ app-emulation/vkd3d-proton
 games-misc/steam::barrensea-overlay
 
 # cdda大灾变
-# games-roguelike/cataclysm-dda::guru
+#games-roguelike/cataclysm-dda-bin::barrensea-overlay

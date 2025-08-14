@@ -45,3 +45,17 @@ media-libs/opencv contrib features2d contribdnn
 
 # cdda大灾变
 media-libs/freetype harfbuzz
+
+# podman
+net-firewall/iptables nftables
+
+# qemu 开opengl alsa 启用SPICE USB重定向 架构arm64 x86_64
+app-emulation/qemu opengl alsa spice usbredir pulseaudio virgl sdl sdl-images QEMU_SOFTMMU_TARGETS: aarch64 x86_64 QEMU_USER_TARGETS: x86_64 
+
+# virtmanager
+net-misc/spice-gtk usbredir
+net-dns/dnsmasq script
+net-libs/gnutls pkcs11 tools
+
+# obs
+media-video/ffmpeg opus
