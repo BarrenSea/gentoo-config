@@ -59,3 +59,6 @@ net-libs/gnutls pkcs11 tools
 
 # obs
 media-video/ffmpeg opus
+
+# media
+media-video/vlc ncurses libcaca
