@@ -1,5 +1,5 @@
 # editor
-app-editors/emacs libxml2 dynamic-loading json xwidgets
+app-editors/emacs libxml2 dynamic-loading json xwidgets dbus tree-sitter source sqlite  jit
 
 # sys
 sys-libs/glibc hash-sysv-compat
@@ -8,18 +8,24 @@ sys-devel/gcc jit
 
 
 # game
-app-emulation/wine-proton osmesa v4l
+app-emulation/wine-proton osmesa v4l -wow64
 
 # rust
 dev-lang/rust  clippy doc rust-analyzer rust-src rust-fmt
 dev-lang/rust-bin clippy rust-src rust-analyzer rustfmt
 
+# python
+dev-lang/python -bluetooth sqlite tk
+dev-python/pyqt5 gui network
+dev-qt/qtwebengine junbo-build
+
+
 # hardware
 x11-libs/libdrm video_cards_radeon
 
 # media
-meida-video/obs-studio pipewire v4l
-meida-video/obs-studio pipewire v4l
+media-video/obs-studio v4l pipewire
+
 media-video/pipewire gstreamer pipewire-alsa sound-server
 
 # xfce4
@@ -27,13 +33,14 @@ dev-libs/libdbusmenu gtk3
 
 # boot
 sys-boot/grub mount
+
 # tmp(for fix the circular dependencies)
 sys-libs/ncurses -gpm
-dev-lang/python -bluetooth
 
 # kde
 kde-plasma/kwin lock
 kde-plasma/kwin-x11 lock
+dev-qt/qtbase -eglfs               
 
 # lib
 sys-libs/zlib minizip
@@ -50,7 +57,7 @@ media-libs/freetype harfbuzz
 net-firewall/iptables nftables
 
 # qemu 开opengl alsa 启用SPICE USB重定向 架构arm64 x86_64
-app-emulation/qemu opengl alsa spice usbredir pulseaudio virgl sdl sdl-images QEMU_SOFTMMU_TARGETS: aarch64 x86_64 QEMU_USER_TARGETS: x86_64 
+app-emulation/qemu opengl alsa spice usbredir pulseaudio virgl sdl sdl-images QEMU_SOFTMMU_TARGETS: aarch64 x86_64 riscv64 arm QEMU_USER_TARGETS: x86_64 riscv64 arm
 
 # virtmanager
 net-misc/spice-gtk usbredir
@@ -58,7 +65,33 @@ net-dns/dnsmasq script
 net-libs/gnutls pkcs11 tools
 
 # obs
-media-video/ffmpeg opus
+media-video/ffmpeg opus v4l
 
 # media
-media-video/vlc ncurses libcaca
+media-video/vlc ncurses libcaca taglib
+
+# npm
+net-libs/nodejs npm
+
+# LaTeX
+app-text/texlive cjk xetex
+app-text/texlive-core cjk xetex
+
+# for kcachegrind
+media-libs/gd fontconfig
+
+kde-apps/okular mobi
+
+# for emacs
+net-mail/mu emacs
+
+# for niri
+dev-cpp/cpptrace unwind
+
+
+dev-util/claude-code cpu_flags_x86_avx cpu_flags_x86_avx2
+
+#dev-python/setuptools PYTHON_TARGETS: python3_14 python3_13 python3_12
+
+# for coq
+dev-ml/lablgtk sourceview

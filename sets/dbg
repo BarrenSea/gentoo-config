@@ -1,0 +1,7 @@
+dev-util/perf
+dev-debug/strace
+dev-debug/gdb
+dev-debug/valgrind
+kde-apps/kcachegrind
+
+net-analyzer/mtr

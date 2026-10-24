@@ -1,2 +1,6 @@
 app-editors/emacs # emacs
 app-emacs/ebuild-mode
+
+# for mu4e
+net-mail/mu
+net-mail/isync

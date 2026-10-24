@@ -17,3 +17,5 @@ net-vpn/hiddify-bin::barrensea-overlay
 
 # fastfetch
 app-misc/fastfetch
+
+gnome-extra/gnome-calculator

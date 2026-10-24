@@ -6,5 +6,7 @@ kde-apps/konsole
 
 kde-apps/dolphin # 
 kde-apps/ark # 压缩
-kde-plasma/spectacle # 截图
+# kde-plasma/spectacle # 截图
 media-sound/elisa # 音乐
+
+kde-apps/gwenview # 图片查看器

@@ -1,0 +1,3 @@
+sci-mathematics/maxima # 类似Matlab的命令行数学工具
+#sci-mathematics/lean # Lean4
+sci-mathematics/coq

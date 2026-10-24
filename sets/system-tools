@@ -2,3 +2,9 @@ dev-util/perf
 dev-debug/strace
 sys-process/lsof
 sys-fs/inotify-tools
+sys-apps/lm-sensors
+sys-process/btop # 监控工具
+net-wireless/iw
+
+net-analyzer/tcpdump
+sys-apps/kexec-tools # kexec

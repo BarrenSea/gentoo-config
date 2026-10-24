@@ -5,7 +5,7 @@
 
 ** sets
 软件集合
-| pre             | 最先安装的sets,包含了基础的fish,sudo,git和tmux           |
+| pre             | 最先安装的sets,包含了基础的fish,sudo,git和tmux          |
 | mini            | 其中是必要的系统组件和工具grub,kernel,firmware,dhcpcd... |
 | desktop-xfce    | xfce桌面                                             |
 | desktop-kde     | kde桌面                                              |
@@ -14,15 +14,15 @@
 | fs              | 文件系统及其工具                                       |
 | i18n            | 输入法与rime                                          |
 | java            | java开发工具 jdk                                      |
-| game            | 游戏用工具 wine proton等                               |
+| game            | 游戏用工具 wine proton等                              |
 | compress        | 压缩工具 7zip等                                       |
 | bittorrent      | p2p下载器  qbittorrent等                              |
-| container       | 容器 podman等                                         |
-| web-client      | 浏览器 chromium                                       |
+| container       | 容器 podman等                                        |
+| web-client      | 浏览器 chromium                                      |
 | sec             | 安全工具 clamv等                                      |
 | system-tools    | 系统工具 inotify-tools perf lsof等                    |
-| power           | 电源管理 tlp等                                         |
-| media           | 媒体相关 kdenlive等                                    |
+| power           | 电源管理 tlp等                                        |
+| media           | 媒体相关 kdenlive等                                   |
 ** scripts
 脚本
 | grub.sh                  | [需要更改EFI分区挂载点]安装grub与grub配置 应先安装@mini与@boot |

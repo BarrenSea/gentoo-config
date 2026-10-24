@@ -1,2 +1,4 @@
-sys-power/tlp # 电源管理器
+#sys-power/tlp # 电源管理器
 sys-power/power-profiles-daemon
+sys-power/powertop
+sys-power/cpupower

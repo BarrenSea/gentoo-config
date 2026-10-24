@@ -9,3 +9,7 @@ media-libs/sdl2-ttf
 
 # obs
 media-video/obs-studio
+
+media-video/mpv
+media-video/celluloid
+media-video/v4l2loopback

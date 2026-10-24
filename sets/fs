@@ -1,2 +1,3 @@
 sys-fs/ntfs3g
 sys-fs/ncdu # 文件系统占用检查
+sys-apps/the_silver_searcher # 比ack grep快得多的搜索器 Emacs有集成

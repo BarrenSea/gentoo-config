@@ -1,0 +1,105 @@
+# editor
+app-editors/emacs libxml2 dynamic-loading json xwidgets dbus
+
+# sys
+sys-libs/glibc hash-sysv-compat
+sys-kernel/installkernel dracut
+sys-devel/gcc jit
+
+
+# game
+app-emulation/wine-proton osmesa v4l -wow64
+
+# rust
+dev-lang/rust  clippy doc rust-analyzer rust-src rust-fmt
+dev-lang/rust-bin clippy rust-src rust-analyzer rustfmt
+
+# python
+dev-lang/python -bluetooth sqlite tk
+dev-python/pyqt5 gui network
+dev-qt/qtwebengine junbo-build
+
+
+# hardware
+x11-libs/libdrm video_cards_radeon
+
+# media
+media-video/obs-studio v4l pipewire
+
+media-video/pipewire gstreamer pipewire-alsa sound-server
+
+# xfce4
+dev-libs/libdbusmenu gtk3
+
+# boot
+sys-boot/grub mount
+
+# tmp(for fix the circular dependencies)
+sys-libs/ncurses -gpm
+
+# kde
+kde-plasma/kwin lock
+kde-plasma/kwin-x11 lock
+dev-qt/qtbase -eglfs               
+
+# lib
+sys-libs/zlib minizip
+
+
+# kdenlive
+media-libs/mlt ffmpeg frei0r
+media-libs/opencv contrib features2d contribdnn
+
+# cdda大灾变
+media-libs/freetype harfbuzz
+
+# podman
+net-firewall/iptables nftables
+
+# qemu 开opengl alsa 启用SPICE USB重定向 架构arm64 x86_64
+app-emulation/qemu opengl alsa spice usbredir pulseaudio virgl sdl sdl-images QEMU_SOFTMMU_TARGETS: aarch64 x86_64 riscv64 arm QEMU_USER_TARGETS: x86_64 riscv64 arm
+
+# virtmanager
+net-misc/spice-gtk usbredir
+net-dns/dnsmasq script
+net-libs/gnutls pkcs11 tools
+
+# obs
+media-video/ffmpeg opus v4l
+
+# media
+media-video/vlc ncurses libcaca taglib
+
+# npm
+net-libs/nodejs npm
+
+# LaTeX
+app-text/texlive cjk xetex
+app-text/texlive-core cjk xetex
+
+# for kcachegrind
+media-libs/gd fontconfig
+
+kde-apps/okular mobi
+
+
+
+
+# for emacs
+net-mail/mu emacs
+
+# for niri
+dev-cpp/cpptrace unwind
+
+
+dev-util/claude-code cpu_flags_x86_avx cpu_flags_x86_avx2
+
+dev-python/setuptools PYTHON_TARGETS: python3_14 python3_13 python3_12
+# required by dev-python/setuptools-scm-10.2.0::gentoo[-test]
+# required by dev-python/setuptools-83.0.0::gentoo
+# required by dev-libs/glib-2.88.2::gentoo[introspection]
+# required by app-emulation/qemu-10.2.3::gentoo
+# required by @virt
+# required by @selected
+# required by @world (argument)
+>=dev-python/vcs-versioning-2.2.2 python_targets_python3_13 python_targets_python3_12

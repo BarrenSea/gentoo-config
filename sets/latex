@@ -1,0 +1,5 @@
+app-text/texlive
+app-text/texlive-core
+dev-texlive/texlive-latexextra 
+dev-tex/biblatex
+dev-texlive/texlive-mathscience

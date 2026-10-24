@@ -10,3 +10,9 @@ games-misc/steam::barrensea-overlay
 
 # cdda大灾变
 #games-roguelike/cataclysm-dda-bin::barrensea-overlay
+
+# ryujinx
+games-emulation/ryujinx::barrensea-overlay
+
+# 围棋
+games-board/gnugo

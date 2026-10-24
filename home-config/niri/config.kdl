@@ -1,0 +1,231 @@
+// vim: ft=kdl
+
+// ─── 环境变量 ─────────────────────────────────────────────
+environment {
+    // 输入法
+    GTK_IM_MODULE "fcitx"
+    QT_IM_MODULE "fcitx"
+    XMODIFIERS "@im=fcitx"
+    SDL_IM_MODULE "fcitx"
+    GLFW_IM_MODULE "ibus"
+
+    // Wayland
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORM "wayland;xcb"
+    GDK_BACKEND "wayland,x11"
+    MOZ_ENABLE_WAYLAND "1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+
+    // WebKitGTK Wayland 兼容（clash-verge 等 Tauri 应用需要）
+    WEBKIT_DISABLE_DMABUF_RENDERER "1"
+
+
+}
+
+// ─── 截图 ─────────────────────────────────────────────────
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// ─── 输入设备 ─────────────────────────────────────────────
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+        accel-speed 0.2
+    }
+}
+
+// ─── 布局 ─────────────────────────────────────────────────
+// 透明背景让 DMS 壁纸能显示在 overview 层下
+layout {
+    gaps 8
+    background-color "transparent"
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 2
+        active-color "#7aa2f7"
+        inactive-color "#3b4261"
+    }
+}
+
+// ─── 自启动 ───────────────────────────────────────────────
+spawn-at-startup "fcitx5" "-d"
+spawn-at-startup "nm-applet"
+spawn-at-startup "dms" "run"
+// 剪贴板历史（可选）
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store"
+
+// ─── DMS 图层规则 ─────────────────────────────────────────
+// 让 DMS Shell 在 overview 上显示
+layer-rule {
+    match namespace=r#"^quickshell$"#
+    place-within-backdrop true
+}
+// 模糊壁纸层（如果启用了 Blur Layer）
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
+}
+
+// ─── 快捷键 ───────────────────────────────────────────────
+// 注意: Mod+Space / Mod+V / Mod+M / Mod+Comma / Mod+N / Mod+Y / Mod+Alt+L
+//       这些由 DMS 在 dms/binds.kdl 中接管，主配置不重复绑定
+binds {
+    // ── 终端 & 应用 ──
+    Mod+T { spawn "foot"; }
+    Mod+E { spawn "emacs"; }
+
+    // ── 关闭窗口 ──
+    Mod+Q { close-window; }
+
+    // ── 方向移动 (vim hjkl) ──
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+K { focus-window-up; }
+    Mod+J { focus-window-down; }
+
+    // 移动窗口
+    Mod+Ctrl+H { move-column-left; }
+    Mod+Ctrl+L { move-column-right; }
+    Mod+Ctrl+K { move-window-up; }
+    Mod+Ctrl+J { move-window-down; }
+
+    // ── 监视器间切换 ──
+    Mod+Shift+H { focus-monitor-left; }
+    Mod+Shift+L { focus-monitor-right; }
+    Mod+Shift+K { focus-monitor-up; }
+    Mod+Shift+J { focus-monitor-down; }
+
+    // 移动窗口到其他监视器
+    Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
+
+    // ── 列宽/窗高调整 ──
+    Mod+R { switch-preset-column-width; }
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // ── 工作区 ──
+    Mod+1 { focus-workspace 0; }
+    Mod+2 { focus-workspace 1; }
+    Mod+3 { focus-workspace 2; }
+    Mod+4 { focus-workspace 3; }
+    Mod+5 { focus-workspace 4; }
+    Mod+6 { focus-workspace 5; }
+    Mod+7 { focus-workspace 6; }
+    Mod+8 { focus-workspace 7; }
+    Mod+9 { focus-workspace 8; }
+    Mod+0 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 0; }
+    Mod+Shift+2 { move-column-to-workspace 1; }
+    Mod+Shift+3 { move-column-to-workspace 2; }
+    Mod+Shift+4 { move-column-to-workspace 3; }
+    Mod+Shift+5 { move-column-to-workspace 4; }
+    Mod+Shift+6 { move-column-to-workspace 5; }
+    Mod+Shift+7 { move-column-to-workspace 6; }
+    Mod+Shift+8 { move-column-to-workspace 7; }
+    Mod+Shift+9 { move-column-to-workspace 8; }
+    Mod+Shift+0 { move-column-to-workspace 9; }
+    Mod+U { focus-workspace-up; }
+    Mod+I { focus-workspace-down; }
+
+    // ── 全屏 & 浮动 & 最大化 ──
+    Mod+F { fullscreen-window; }
+    Mod+Shift+F { fullscreen-window; }
+    // Mod+V 被 DMS 剪贴板占用，浮动切换改用 Mod+Ctrl+V
+    Mod+Ctrl+V { toggle-window-floating; }
+    Mod+C { center-column; }
+    // Mod+M 被 DMS 进程管理占用，最大化改用 Mod+Ctrl+M
+    Mod+Ctrl+M { maximize-column; }
+
+    // ── 总览 ──
+    Mod+O { toggle-overview; }
+
+    // ── 截图 ──
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // ── 锁屏 & 退出 ──
+    // Mod+Alt+L 由 DMS 接管 (dms ipc call lock lock)
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    // ── 省电 ──
+    Mod+Shift+P { power-off-monitors; }
+
+    // ── 快捷键提示 ──
+    Mod+Shift+Slash { show-hotkey-overlay; }
+}
+
+// ─── 窗口规则 ─────────────────────────────────────────────
+// GNOME 系应用: 圆角，禁用背景边框
+window-rule {
+    match app-id=r#"^org\.gnome\.\w+$"#
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// 终端模拟器: 禁用背景边框（圆角由通用规则处理）
+window-rule {
+    match app-id=r#"^(org\.wezfurlong\.wezterm|Alacritty|zen|com\.github\.kovidgoyal\.kitty|Ghostty)$"#
+    draw-border-with-background false
+}
+
+// 通用圆角（匹配所有窗口）
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// DMS 自身窗口浮动
+window-rule {
+    match app-id=r#"org\.quickshell$"#
+    open-floating true
+}
+
+// 密码管理器：浮动 + 阻止截图
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    open-floating true
+    block-out-from "screen-capture"
+}
+
+// 混音器浮动
+window-rule {
+    match app-id=r#"^pavucontrol$"#
+    open-floating true
+}
+
+// Firefox 画中画浮动
+window-rule {
+    match app-id=r#"^firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// ─── DMS 自动生成的模块（保持文件存在，内容由 DMS 填充）───
+include "dms/colors.kdl"
+include "dms/layout.kdl"
+include "dms/alttab.kdl"
+include "dms/binds.kdl"
